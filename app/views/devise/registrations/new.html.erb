@@ -8,12 +8,12 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm", placeholder: "Ваш email" %>
         </div>
         <div>
-          <%# <%= f.label :username, class: "sr-only" %>
-          <%# <%= f.email_field :username, autofocus: true, autocomplete: "username", required: true, class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm", placeholder: "Логин" %> %> %>
+          <%= f.label :username, class: "sr-only" %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true, class: "relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm", placeholder: "Логин" %>
         </div>
         <div>
           <%= f.label :password, class: "sr-only" %>
-          <%= f.password_field :password, autocomplete: "new-password", required: :true, class: "relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm", placeholder: "Пароль" %>
+          <%= f.password_field :password, autocomplete: "new-password", required: :true, class: "relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm", placeholder: "Пароль" %>
         </div>
         <div>
           <%= f.label :password_confirmation, class: "sr-only" %>
