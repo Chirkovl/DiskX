@@ -1,0 +1,16 @@
+<h1>Мой диск</h1>
+<p>Здесь вы можете хранить свои файлы. Доступно <%= @available_space %> Mb.</p>
+
+<h2>Загрузка файла</h2>
+
+<%= form_with model: current_user.documents.new, url: disks_path, local: true do |form| %>
+  <% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+  <% end %>
+
+  <%= form.file_field :file %>
+
+  <br>
+
+  <%= form.submit "Загрузить" %>
+<% end %>

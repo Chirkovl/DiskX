@@ -1,1 +1,29 @@
-<h1 class="text-red-600">Главная страница</h1>
+<h1>Ваш диск</h1>
+
+<p>Здесь вы можете хранить свои файлы. Доступно <%= @available_space %> Mb.</p>
+
+<h2>Список файлов</h2>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Название</th>
+        <th scope="col" class="px-6 py-3">Скачать</th>
+        <th scope="col" class="px-6 py-3">Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.documents.each do |document| %>
+        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          <td class="px-6 py-4"><%= document.id %></td>
+          <td class="px-6 py-4"><%= document.filename %></td>
+          <td class="px-6 py-4"><%= link_to "Скачать", rails_blob_path(document.file) %></td>
+          <td class="px-6 py-4"><%= button_to "Удалить", disk_path(document), form: { data: { turbo_confirm: "Удалить #{document.filename} ?" } }, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
