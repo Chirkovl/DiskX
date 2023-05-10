@@ -1,8 +1,8 @@
-<h1>Ваш диск</h1>
+<h1 class="mb-2 mt-0 text-3xl font-medium text-center leading-tight text-primary">Ваш диск</h1>
 
-<p>Здесь вы можете хранить свои файлы. Доступно <%= @available_space %> Mb.</p>
+<p class="text-center">Здесь вы можете хранить свои файлы. Доступно <span class="font-medium"><%= @available_space.round(3) %> Mb</span>.</p>
 
-<h2>Список файлов</h2>
+<h2 class="mt-6 mb-4 mt-0 text-xl leading-tight text-center text-primary">Список Ваших файлов:</h2>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

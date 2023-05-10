@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.rreddd {
-  @apply text-red-800
+.w-600 {
+  width: 600px;
 }
 /*
 

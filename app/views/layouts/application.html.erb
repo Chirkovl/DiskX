@@ -74,8 +74,15 @@
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">X-Disk</h1>
       </div>
     </header>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto flex">
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <div>
+          <% if flash[:notice].present? %>
+            <div class="flex mb-4 rounded-lg bg-green-100 px-6 py-5 text-base text-green-700 w-600 text-center"><%= flash[:notice]%></div>
+          <% elsif flash[:alert].present? %>
+            <div class="flex mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-red-700 w-600 text-center"><%= flash[:alert]%></p>
+          <% end %> 
+        </div>
         <%= yield %>
       </div> 
     </main>
