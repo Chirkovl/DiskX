@@ -1,20 +1,18 @@
 class DisksController < ApplicationController
   before_action :authenticate_user!
+  before_action :calculate_available_space, only: [:index, :create, :new]
 
   def index
     @documents = current_user.documents
-    @available_space = (10 - (current_user.documents.sum(&:file_size))).round(3)
   end
 
   def new
-    @available_space = (10 - (current_user.documents.sum(&:file_size))).round(3)
     document = current_user.documents.new
   end
 
   def create
-    @available_space = (10 - (current_user.documents.sum(&:file_size))).round(3)
     document = current_user.documents.new(document_params)
-    if @available_space - document.file_size < 0 && document.file_size < 4
+    if @available_space - document.file_size < 0 || document.file_size > 4
       redirect_to disks_path, alert: "Суммарный размер файлов не должен превышать 10MB, а загружаемый не должен превышать 4MB"
     else
       if document.save
@@ -35,6 +33,10 @@ class DisksController < ApplicationController
 
   def document_params
     params.require(:document).permit(:file)
+  end
+
+  def calculate_available_space
+    @available_space = (10 - (current_user.documents.sum(&:file_size))).round(3)
   end
 end
 
