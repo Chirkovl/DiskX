@@ -1,0 +1,9 @@
+<% if ['docx', 'pages'].include?(document.extension_name) %>
+  <td class="px-6 py-4"><%= image_tag 'docx', size: '16x16' %></td>
+<% elsif ['xlsx'].include?(document.extension_name) %>
+  <td class="px-6 py-4"><%= image_tag 'table', size: '20x20' %></td>
+<% elsif ['zip'].include?(document.extension_name) %>
+  <td class="px-6 py-4"><%= image_tag 'zip', size: '16x16' %></td>
+<% else %>
+  <td class="px-6 py-4"><%= image_tag 'folder', size: '18x18' %></td>
+<% end %>
