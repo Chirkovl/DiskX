@@ -22,6 +22,7 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'foreman'
 gem 'active_storage_validations'
+gem "font-awesome-rails"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

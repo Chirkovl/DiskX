@@ -3,7 +3,7 @@ class DisksController < ApplicationController
   before_action :calculate_available_space, only: [:index, :create, :new]
 
   def index
-    @documents = current_user.documents
+    documents = current_user.documents
   end
 
   def new

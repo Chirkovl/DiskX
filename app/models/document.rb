@@ -11,4 +11,8 @@ class Document < ApplicationRecord
   def filename
     file.attached? ? File.basename(file.filename.to_s, ".*") : ""
   end
+
+  def extension_name
+    file.attached? ? File.extname(file.filename.to_s)[1..-1] : ""
+  end  
 end

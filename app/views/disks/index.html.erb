@@ -7,7 +7,7 @@
   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3"></th>
         <th scope="col" class="px-6 py-3">Название</th>
         <th scope="col" class="px-6 py-3">Скачать</th>
         <th scope="col" class="px-6 py-3">Удалить</th>
@@ -16,7 +16,7 @@
     <tbody>
       <% current_user.documents.each do |document| %>
         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-          <td class="px-6 py-4"><%= document.id %></td>
+          <%= render "icons", document: document%>
           <td class="px-6 py-4"><%= document.filename %></td>
           <td class="px-6 py-4 text-green-300"><%= link_to "Скачать", rails_blob_path(document.file) %></td>
           <td class="px-6 py-4 text-red-300"><%= button_to "Удалить", disk_path(document), form: { data: { turbo_confirm: "Удалить #{document.filename} ?" } }, method: :delete %></td>
