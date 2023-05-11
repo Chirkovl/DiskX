@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Простое приложение для хранения документов.
 
-Things you may want to cover:
+Используемые технологии:
 
-* Ruby version
+* Ruby '3.0.2'
 
-* System dependencies
+* Ruby on Rails '7.0.4'
 
-* Configuration
+* Docker-compose
 
-* Database creation
+* PostgreSQL
 
-* Database initialization
+* Active Storage
 
-* How to run the test suite
+* Tailwind
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Запуск приложения локально:
+```
+docker-compose up
+```
+Запуск сессии внутри контейнера:
+```
+docker-compose run --rm --service-ports web /bin/bash
+```
+Внутри контейнера установить гемы:
+```
+bundle
+```
+Внутри контейнера создать базу данных и прогнать миграции:
 
-* ...
+```
+rails db:create
+rails db:migrate
+```
+
+Запустить сборщик Tailwind:
+
+```
+rails tailwindcss:watch
+```
