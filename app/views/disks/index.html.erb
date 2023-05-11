@@ -1,0 +1,28 @@
+<h1 class="mb-2 mt-0 text-3xl font-medium text-center leading-tight text-primary">Список Ваших файлов</h1>
+
+<p class="text-center mb-4">Здесь вы можете хранить свои файлы. Доступно <span class="font-medium"><%= @available_space.round(3) %> Mb</span>.</p>
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3"></th>
+        <th scope="col" class="px-6 py-3">Название</th>
+        <th scope="col" class="px-6 py-3">Скачать</th>
+        <th scope="col" class="px-6 py-3">Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.documents.each do |document| %>
+        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          <%= render "icons", document: document%>
+          <td class="px-6 py-4"><%= document.filename %></td>
+          <td class="px-6 py-4 text-green-300"><%= link_to "Скачать", rails_blob_path(document.file) %></td>
+          <td class="px-6 py-4 text-red-300"><%= button_to "Удалить", disk_path(document), form: { data: { turbo_confirm: "Удалить #{document.filename} ?" } }, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
