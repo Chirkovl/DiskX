@@ -57,10 +57,14 @@
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div>
           <% if flash[:notice].present? %>
-            <div class="flex mb-4 rounded-lg bg-green-100 px-6 py-5 text-base text-green-700 w-600 text-center"><%= flash[:notice]%></div>
+            <div class="flex mb-4 rounded-lg bg-green-100 px-6 py-5 text-base text-green-700 w-600 text-center">
+              <%= flash[:notice]%>
+            </div>
           <% elsif flash[:alert].present? %>
-            <div class="flex mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-red-700 w-600 text-center"><%= flash[:alert]%></p>
-          <% end %> 
+            <div class="flex mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-red-700 w-600 text-center">
+              <%= flash[:alert]%>
+            </div>
+          <% end %>
         </div>
         <%= yield %>
       </div> 

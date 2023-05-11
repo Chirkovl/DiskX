@@ -21,6 +21,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'devise'
 gem 'foreman'
+gem 'active_storage_validations'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
