@@ -1,7 +1,7 @@
-<h1 class="mb-2 mt-0 text-3xl font-medium text-center leading-tight text-primary">Мой диск</h1>
+<h1 class="mb-2 mt-0 text-3xl font-medium text-center leading-tight text-primary">Строка состояния</h1>
 <p class="text-center">Здесь вы можете хранить свои файлы. Доступно <span class="font-medium"><%= @available_space.round(3) %> Mb</span>.</p>
 
-<h2>Загрузите файл!<span class="text-gray-300">  (Внимание! максимальный размер файла: 4Mb, а поддерживаемывае форматы файла: zip, xlsx, docx)</span></h2>
+<h2>Загрузите файл!<span class="text-gray-400">  (Внимание! максимальный размер файла: 4Mb, а поддерживаемые форматы файла: zip, xlsx, docx)</span></h2>
 
 <%= form_with model: current_user.documents.new, url: disks_path, local: true do |form| %>
   <% if flash[:error] %>
