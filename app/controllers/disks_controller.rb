@@ -35,6 +35,6 @@ class DisksController < ApplicationController
   end
 
   def calculate_available_space
-    @available_space = (10 - current_user.documents.sum(&:file_size)).round(3)
+    @available_space = (10 - current_user.documents.with_attached_file.sum(&:file_size)).round(3)
   end
 end
